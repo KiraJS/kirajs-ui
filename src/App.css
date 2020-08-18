@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+.app-wrapper {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.content {
+  background: white;
+  padding: 30px;
+}
+
+.content img {
+  width: 100%;
+}

@@ -1,0 +1,17 @@
+.content {
+    background: white;
+    padding: 30px;
+}
+
+.title {
+    text-transform: uppercase;
+}
+
+.img {
+    margin-right: 15px;
+}
+
+.item a{
+    color: black;
+    text-decoration: underline;
+}

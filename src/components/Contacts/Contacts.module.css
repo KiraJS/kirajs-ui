@@ -1,0 +1,21 @@
+
+.title {
+    text-transform: uppercase;
+}
+
+.img {
+    margin-right: 15px;
+}
+
+.item a{
+    color: black;
+    text-decoration: underline;
+}
+
+.chip {
+    margin-right: 7px;
+}
+
+.description {
+    margin-bottom: 20px;
+}

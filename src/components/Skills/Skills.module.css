@@ -1,0 +1,22 @@
+.content {
+    background: white;
+    padding: 30px;
+}
+
+.title {
+    text-transform: uppercase;
+}
+
+.img {
+    margin-right: 15px;
+}
+
+.item a{
+    color: black;
+    text-decoration: underline;
+}
+
+.chip {
+    margin-right: 7px;
+    margin-bottom: 7px;
+}

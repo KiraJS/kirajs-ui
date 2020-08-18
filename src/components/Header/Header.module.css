@@ -1,0 +1,13 @@
+.header {
+    min-height: 200px;
+    background-color: #494a4f;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.title {
+    text-transform: uppercase;
+}
