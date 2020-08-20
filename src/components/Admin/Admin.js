@@ -48,7 +48,9 @@ const Admin = (props) => {
         });
     }
 
-    return(
+    console.log('before render');
+
+    return (
         <div className={'content'}>
             <Formik
             enableReinitialize
@@ -290,4 +292,4 @@ const Admin = (props) => {
     )
 }
 
-export  default Admin;
+export default Admin;

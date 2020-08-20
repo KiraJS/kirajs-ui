@@ -4,11 +4,10 @@ import {userId} from "../config";
 import {startSubmitActionCreator, stopSubmitActionCreator} from "./admin-page-reducer";
 
 const SET_USER = "SET-USER";
-const DELETE_USER_DATA_ITEM = "DELETE-USER-DATA-ITEM"
 
 let initialState = null;
 
-const userReducer = (state = initialState, action) => {
+export const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER:
             return {...state, ...action.payload};
@@ -26,7 +25,6 @@ export let setUserActionCreator = (user) => {
 export const updateUserThunkCreator = (user) => {
     return (dispatch) => {
         dispatch(startSubmitActionCreator())
-
         usersAPI.updateUser(userId, user).then((user) => {
             dispatch(setUserActionCreator(user));
             dispatch(stopSubmitActionCreator());
@@ -34,12 +32,8 @@ export const updateUserThunkCreator = (user) => {
     };
 }
 
-export const setUserThunkCreator = () => {
-    return (dispatch) => {
-        usersAPI.getUser(userId).then((user) => {
-            dispatch(setUserActionCreator(user));
-        });
-    };
+export const setUserThunkCreator = () => (dispatch) => {
+    usersAPI.getUser(userId).then((user) => {
+        dispatch(setUserActionCreator(user));
+    });
 }
-
-export default userReducer;

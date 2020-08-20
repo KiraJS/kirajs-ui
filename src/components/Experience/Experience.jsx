@@ -11,7 +11,7 @@ import Button from "@material-ui/core/Button";
 
 export const Experience = (props) => {
 
-    let [activeStepState, changeActiveStep] = useState(0)
+    let [activeStepState, changeActiveStep] = useState(0);
 
     const handleNext = () => {
         changeActiveStep(activeStepState + 1 );
