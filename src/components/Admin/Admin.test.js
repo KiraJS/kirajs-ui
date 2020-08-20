@@ -1,0 +1,3 @@
+describe('Admin tests', () => {
+   it()
+});

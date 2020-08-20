@@ -3,6 +3,7 @@ import {adminPageReducer, startSubmitActionCreator, stopSubmitActionCreator} fro
 
 describe('admin logic tests', () => {
 
+
     it('should switch isSubmittingto true', () => {
         let action = startSubmitActionCreator();
         let state = {
