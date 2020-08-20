@@ -42,13 +42,9 @@ const Admin = (props) => {
         props.updateUser({...values, education: [...props.user.education, newEducation]});
     };
 
-    const deleteItem = (values, name, index) => {
-        props.deleteItem(values, name, index).then(() => {
-            console.log(name, index)
-        });
-    }
-
-    console.log('before render');
+    const deleteItem = (values, name, index) => () => {
+        props.deleteItem(values, name, index);
+    };
 
     return (
         <div className={'content'}>
@@ -61,7 +57,7 @@ const Admin = (props) => {
                 experience: props.user && [...props.user.experience],
                 contacts: props.user && [...props.user.contacts],
                 education: props.user && [...props.user.education],
-                isSumbiting: props.isSubmiting
+                isSubmiting: props.isSubmiting
 
             }}
             // validate={values => {
@@ -273,12 +269,12 @@ const Admin = (props) => {
                             +
                         </Button>
                     </Form>
-                    {values.isSumbiting && <LinearProgress />}
+                    {values.isSubmitting&& <LinearProgress />}
                     <br />
                     <Button
                         variant="contained"
                         color="secondary"
-                        disabled={values.isSumbiting}
+                        disabled={values.isSubmiting}
                         onClick={submitForm}
                     >
                         Submit

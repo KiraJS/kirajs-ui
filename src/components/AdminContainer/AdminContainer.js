@@ -20,7 +20,7 @@ const compareUser = (data) => {
 const mapStateToProps = (state) => {
     return {
         user: getUserSelector(state),
-        isSubmiting: isSubmitingSelector(state)
+        isSubmitting: isSubmitingSelector(state)
     }
 };
 

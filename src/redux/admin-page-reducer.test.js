@@ -3,24 +3,24 @@ import {adminPageReducer, startSubmitActionCreator, stopSubmitActionCreator} fro
 
 describe('admin logic tests', () => {
 
-    it('should switch isSubmiting to true', () => {
+    it('should switch isSubmittingto true', () => {
         let action = startSubmitActionCreator();
         let state = {
             isSubmiting: false
         }
         let newState = adminPageReducer(state, action);
 
-        expect(newState.isSubmiting).toBe(true);
+        expect(newState.isSubmitting).toBe(true);
     });
 
-    it('should switch isSubmiting to false', () => {
+    it('should switch isSubmittingto false', () => {
         let action = stopSubmitActionCreator();
         let state = {
             isSubmiting: true
         }
         let newState = adminPageReducer(state, action);
 
-        expect(newState.isSubmiting).toBe(false);
+        expect(newState.isSubmitting).toBe(false);
     });
 
 });

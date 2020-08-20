@@ -1,5 +1,10 @@
-import { userReducer, setUserActionCreator} from './user-reducer'
+import { userReducer, setUserActionCreator, setUserThunkCreator} from './user-reducer'
 import thunk from "redux-thunk";
+import configureMockStore from "redux-mock-store";
+import moxios from 'moxios';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 let user = {
     name: 'Kira Shatulova',
@@ -117,6 +122,8 @@ let user = {
     skills: ['JavaScript', 'Angular', 'TypeScript', 'React', 'Redux', 'RxJS', 'SCSS', 'LESS', 'ES6', 'NodeJS', 'Java', 'Agile']
 }
 
+
+
 describe('user tests', () => {
 
     let userState;
@@ -125,4 +132,33 @@ describe('user tests', () => {
         let newState = userReducer(userState, action)
         expect(newState.name).toBe('Kira Shatulova');
     });
+
+});
+
+describe('async user tests', () => {
+    let store;
+    beforeEach(() => {
+        moxios.install();
+        store = mockStore({});
+    });
+    afterEach(() => {
+        moxios.uninstall();
+    });
+
+    it('set user async', async () => {
+        moxios.wait( () => {
+            let request = moxios.requests.mostRecent()
+            request.respondWith({
+                status: 200,
+                response: {user}
+            });
+        });
+        store.dispatch(setUserThunkCreator()).then(() => {
+            const expectedActions = [setUserActionCreator];
+            const actualAction = store.getActions();
+            expect(actualAction).isEqual(expectedActions)
+        })
+
+    });
+
 });

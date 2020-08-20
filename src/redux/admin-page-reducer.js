@@ -3,7 +3,7 @@ const STOP_SUBMIT = 'STOP-SUBMIT';
 
 
 let initialState = {
-    isSubmiting: false
+    isSubmitting: false
 }
 export const adminPageReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -18,13 +18,13 @@ export const adminPageReducer = (state = initialState, action) => {
 export let startSubmitActionCreator = () => {
     return {
         type: START_SUBMIT,
-        payload: { isSubmiting: true }
+        payload: { isSubmitting: true }
     }
 };
 
 export let stopSubmitActionCreator = () => {
     return {
         type: STOP_SUBMIT,
-        payload: { isSubmiting: false }
+        payload: { isSubmitting: false }
     }
 };

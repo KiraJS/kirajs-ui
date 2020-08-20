@@ -22,18 +22,14 @@ export let setUserActionCreator = (user) => {
     }
 };
 
-export const updateUserThunkCreator = (user) => {
-    return (dispatch) => {
-        dispatch(startSubmitActionCreator())
-        usersAPI.updateUser(userId, user).then((user) => {
-            dispatch(setUserActionCreator(user));
-            dispatch(stopSubmitActionCreator());
-        });
-    };
+export const updateUserThunkCreator = (user) => async (dispatch) => {
+    dispatch(startSubmitActionCreator())
+    let updatedUser = await usersAPI.updateUser(userId, user);
+    dispatch(setUserActionCreator(updatedUser));
+    dispatch(stopSubmitActionCreator());
 }
 
-export const setUserThunkCreator = () => (dispatch) => {
-    usersAPI.getUser(userId).then((user) => {
-        dispatch(setUserActionCreator(user));
-    });
+export const setUserThunkCreator = () => async (dispatch) => {
+    let user = await usersAPI.getUser(userId);
+    dispatch(setUserActionCreator(user));
 }

@@ -1,6 +1,5 @@
-import axios from "axios";
-import {userId} from "../config"
-import {baseUrl} from "../config"
+import axios from 'axios';
+import {baseUrl} from '../config'
 
 const instance = axios.create({
     baseURL: baseUrl,
@@ -8,13 +7,14 @@ const instance = axios.create({
 });
 
 export const usersAPI = {
-    getUser(id) {
-        return instance.get(`/users/${id}`).then((response) => {
-            return response.data;
-        })},
-    updateUser(id, user) {
+    async getUser(id) {
+        let response = await instance.get(`/users/${id}`);
+        console.log('response', response)
 
-        return instance.put(`/users/${id}`, user).then((response) => {
-            return response.data;
-        })}
+        return response.data;
+    },
+    async updateUser(id, user) {
+        let response = await instance.put(`/users/${id}`, user);
+        return response.data;
+    }
 }
