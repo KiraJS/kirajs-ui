@@ -20,8 +20,8 @@ const Education = (props) => {
             <Typography component="h2" variant="h2" gutterBottom className={classes.title}>
                 Education
             </Typography>
-            {props.education.map((item, index) => (
-                <div>
+            {props.education && props.education.map((item, index) => (
+                <div key={index}>
                     <ListItem>
                         <SchoolIcon color="primary" className={classes.icon} />
                         <Typography className={classes.text}  component="h6" variant="h6">
@@ -40,7 +40,7 @@ const Education = (props) => {
                         </Typography>
                     </ListItem>
                     <br/>
-                    {props.education.length - 1 !== index && <Divider light />}
+                    {props.education && props.education.length - 1 !== index && <Divider light />}
                     <br/>
                 </div>
             ))}

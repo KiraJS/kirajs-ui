@@ -1,4 +1,5 @@
 let ObjectID = require('mongodb').ObjectID;
+
 module.exports = function(app, db) {
 
     app.get('/users/:id', (req, res) => {
@@ -35,6 +36,7 @@ module.exports = function(app, db) {
             }
         });
     });
+
 
     app.put('/users/:id', (req, res) => {
         const id = req.params.id;

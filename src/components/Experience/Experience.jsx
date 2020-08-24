@@ -25,7 +25,7 @@ export const Experience = (props) => {
         changeActiveStep(0);
     };
 
-    const steps = props.experienceItems.map((item)=> item.role);
+    const steps = props.experienceItems && props.experienceItems.map((item)=> item.role) || [];
 
     return (
         <div className='content'>

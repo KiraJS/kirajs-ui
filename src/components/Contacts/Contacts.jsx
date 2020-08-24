@@ -28,7 +28,7 @@ const Contacts = (props) => {
                        )
                     } else {
                         return (
-                            <ListItem className={classes.item}>
+                            <ListItem key={i} className={classes.item}>
                                 <ContactIcon name={item.icon}/>
                                 <ListItemText primary={item.name} />
                             </ListItem>

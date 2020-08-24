@@ -9,8 +9,6 @@ const instance = axios.create({
 export const usersAPI = {
     async getUser(id) {
         let response = await instance.get(`/users/${id}`);
-        console.log('response', response)
-
         return response.data;
     },
     async updateUser(id, user) {

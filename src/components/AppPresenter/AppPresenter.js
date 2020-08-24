@@ -7,17 +7,17 @@ import {ExperienceContainer} from "../ExperienceContainer/ExperienceContainer";
 import {EducationContainer} from "../EducationContainer/EducationContainer";
 import {SkillsContainer} from "../SkillsContainer/SkillsContainer";
 import {AdminContainer} from "../AdminContainer/AdminContainer";
-import Redirect from "react-router-dom/es/Redirect";
+import { Redirect } from "react-router-dom";
 import React from "react";
 
 export const AppPresenter = () => {
     return (
         <div className='content'>
-            <Grid container spacing={16}>
+            <Grid container>
                 <Grid item xs={12}>
                     <HeaderContainer />
                 </Grid>
-                <Grid container xs={12}>
+                <Grid container>
                     <Grid item xs={12} md={3}>
                         <Navbar />
                     </Grid>
